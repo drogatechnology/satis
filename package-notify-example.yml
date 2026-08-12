@@ -4,10 +4,15 @@
 # It fires on every version tag push and tells the drogatechnology/satis repo to
 # rebuild immediately, instead of relying on the 6-hour scheduled safety net.
 #
-# Requires a repo secret SATIS_DISPATCH_TOKEN: a fine-grained GitHub PAT with
-# "Contents: read and write" + "Actions: read and write" on the drogatechnology/satis
-# repo only (create it once under the org, store it as an org-level secret so every
-# package repo can reuse it without minting a new token each time).
+# Requires a repo secret SATIS_DISPATCH_TOKEN on THIS package repo: a fine-grained
+# GitHub PAT with "Contents: read and write" + "Actions: read and write" on the
+# drogatechnology/satis repo only. Set it as a repo-level secret, e.g.:
+#
+#   gh secret set SATIS_DISPATCH_TOKEN --repo drogatechnology/<this-repo> --body <token>
+#
+# (On GitHub Free, org-level secrets are only delivered to public repos, so private
+# package repos must set the secret per repo. If the org is upgraded to Team/Enterprise,
+# an org-level secret scoped to all package repos can replace this per-repo step.)
 
 name: Notify Satis on release
 

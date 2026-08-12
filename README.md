@@ -31,9 +31,17 @@ Repo Settings → Secrets and variables → Actions → New repository secret:
 
 By default this repo rebuilds every 6 hours via `schedule`, which is a fine safety net but slow. For instant updates:
 
-1. Create an org-level secret `SATIS_DISPATCH_TOKEN` — a fine-grained PAT with **Contents: read/write** + **Actions: read/write** scoped to `drogatechnology/satis` only — available to all repos in the org.
-2. Copy `package-notify-example.yml` into `.github/workflows/notify-satis.yml` in `postman-generator` (and any future private package repo).
-3. Now `git push origin v1.1.0` in that package repo triggers an immediate Satis rebuild instead of waiting on the schedule.
+1. Create the `SATIS_DISPATCH_TOKEN` — a fine-grained GitHub PAT with **Contents: read/write** + **Actions: read/write** scoped to `drogatechnology/satis` only.
+2. Set it as a **repo-level secret on each package repo** (required on GitHub Free, where org-level secrets are only delivered to public repositories):
+
+   ```bash
+   gh secret set SATIS_DISPATCH_TOKEN --repo drogatechnology/postman-generator --body <token>
+   ```
+
+   > If the org is upgraded to GitHub Team or Enterprise, this can be stored once as an org-level secret (`gh secret set SATIS_DISPATCH_TOKEN --org drogatechnology --visibility all`) and every package repo inherits it automatically.
+
+3. Copy `package-notify-example.yml` into `.github/workflows/notify-satis.yml` in `postman-generator` (and any future private package repo).
+4. Now `git push origin v1.1.0` in that package repo triggers an immediate Satis rebuild instead of waiting on the schedule.
 
 ## Adding a new package later
 
@@ -48,7 +56,7 @@ Edit `satis.json`:
     "drogatechnology/your-new-package": "*"
 }
 ```
-Commit to `main` — the build workflow runs on every push to `main` as well, so the new package appears in the index right away. Then drop `notify-satis.yml` into that new package's repo too.
+Commit to `main` — the build workflow runs on every push to `main` as well, so the new package appears in the index right away. Then drop `notify-satis.yml` into that new package's repo too, and set the `SATIS_DISPATCH_TOKEN` repo-level secret on it (see step 4 in the setup section).
 
 ## Consumer setup (in any Droga Laravel project)
 
