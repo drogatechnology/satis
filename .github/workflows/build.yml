@@ -1,0 +1,51 @@
+name: Build & Deploy Satis
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Safety net: rebuild every 6 hours even if a dispatch was missed
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+  repository_dispatch:
+    # Fired by consuming packages (e.g. postman-generator) when they tag a new release.
+    # See package-notify-example.yml for the sender side.
+    types: [package-updated]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: satis-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout satis config
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: composer:v2
+
+      - name: Configure Composer auth for private Droga repos
+        run: composer config --global github-oauth.github.com "${{ secrets.SATIS_GITHUB_TOKEN }}"
+
+      - name: Install Satis
+        run: composer create-project composer/satis --stability=stable --no-interaction satis-build
+
+      - name: Build package index
+        run: php satis-build/bin/satis build satis.json public
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages

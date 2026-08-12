@@ -1,0 +1,29 @@
+# Copy this file into each private package repo (e.g. drogatechnology/postman-generator)
+# at .github/workflows/notify-satis.yml
+#
+# It fires on every version tag push and tells the drogatechnology/satis repo to
+# rebuild immediately, instead of relying on the 6-hour scheduled safety net.
+#
+# Requires a repo secret SATIS_DISPATCH_TOKEN: a fine-grained GitHub PAT with
+# "Contents: read and write" + "Actions: read and write" on the drogatechnology/satis
+# repo only (create it once under the org, store it as an org-level secret so every
+# package repo can reuse it without minting a new token each time).
+
+name: Notify Satis on release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger drogatechnology/satis rebuild
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.SATIS_DISPATCH_TOKEN }}" \
+            https://api.github.com/repos/drogatechnology/satis/dispatches \
+            -d '{"event_type":"package-updated"}'

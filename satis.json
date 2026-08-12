@@ -1,0 +1,23 @@
+{
+    "name": "drogatechnology/satis",
+    "homepage": "https://drogatechnology.github.io/satis",
+    "output-dir": "public",
+    "output-html": true,
+    "archive": {
+        "directory": "dist",
+        "format": "zip",
+        "skip-dev": true
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/drogatechnology/postman-generator"
+        }
+    ],
+    "require": {
+        "drogatechnology/postman-generator": "*"
+    },
+    "require-dependencies": true,
+    "require-dev-dependencies": false,
+    "abandoned": {}
+}
