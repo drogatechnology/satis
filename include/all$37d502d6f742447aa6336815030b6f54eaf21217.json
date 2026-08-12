@@ -68,6 +68,73 @@
                     "issues": "https://github.com/drogatechnology/postman-generator/issues"
                 }
             },
+            "v1.1.0": {
+                "name": "drogatechnology/postman-generator",
+                "version": "v1.1.0",
+                "version_normalized": "1.1.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:drogatechnology/postman-generator.git",
+                    "reference": "ccd3602cea24e684862ca00ddacc06a2171df7d0"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://drogatechnology.github.io/satis/dist/drogatechnology/postman-generator/drogatechnology-postman-generator-ccd3602cea24e684862ca00ddacc06a2171df7d0-zip-8bbdee.zip",
+                    "reference": "ccd3602cea24e684862ca00ddacc06a2171df7d0",
+                    "shasum": "24d7fb87248ff8540faab6e84866811b990159d5"
+                },
+                "require": {
+                    "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+                    "illuminate/routing": "^10.0|^11.0|^12.0|^13.0",
+                    "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+                    "php": "^8.1"
+                },
+                "require-dev": {
+                    "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+                    "phpunit/phpunit": "^10.0|^11.0|^12.0"
+                },
+                "time": "2026-08-12T13:52:35+00:00",
+                "type": "library",
+                "extra": {
+                    "laravel": {
+                        "providers": [
+                            "DrogaTechnology\\PostmanGenerator\\PostmanGeneratorServiceProvider"
+                        ]
+                    }
+                },
+                "installation-source": "dist",
+                "autoload": {
+                    "psr-4": {
+                        "DrogaTechnology\\PostmanGenerator\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DrogaTechnology\\PostmanGenerator\\Tests\\": "tests/"
+                    }
+                },
+                "license": [
+                    "MIT"
+                ],
+                "authors": [
+                    {
+                        "name": "Droga Technology",
+                        "homepage": "https://github.com/drogatechnology"
+                    }
+                ],
+                "description": "Generate a Postman collection (and environment) from your Laravel routes with one artisan command.",
+                "keywords": [
+                    "api",
+                    "collection",
+                    "documentation",
+                    "laravel",
+                    "postman"
+                ],
+                "support": {
+                    "source": "https://github.com/drogatechnology/postman-generator/tree/v1.1.0",
+                    "issues": "https://github.com/drogatechnology/postman-generator/issues"
+                }
+            },
             "dev-main": {
                 "name": "drogatechnology/postman-generator",
                 "version": "dev-main",
@@ -75,25 +142,25 @@
                 "source": {
                     "type": "git",
                     "url": "git@github.com:drogatechnology/postman-generator.git",
-                    "reference": "ec568cfc8f6a001d77286ff558d1e0a2678df8d8"
+                    "reference": "cd416176257b81498e92e3c1052d89d8539325e0"
                 },
                 "dist": {
                     "type": "zip",
-                    "url": "https://api.github.com/repos/drogatechnology/postman-generator/zipball/ec568cfc8f6a001d77286ff558d1e0a2678df8d8",
-                    "reference": "ec568cfc8f6a001d77286ff558d1e0a2678df8d8",
+                    "url": "https://api.github.com/repos/drogatechnology/postman-generator/zipball/cd416176257b81498e92e3c1052d89d8539325e0",
+                    "reference": "cd416176257b81498e92e3c1052d89d8539325e0",
                     "shasum": ""
                 },
                 "require": {
-                    "illuminate/console": "^10.0|^11.0|^12.0",
-                    "illuminate/routing": "^10.0|^11.0|^12.0",
-                    "illuminate/support": "^10.0|^11.0|^12.0",
+                    "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+                    "illuminate/routing": "^10.0|^11.0|^12.0|^13.0",
+                    "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
                     "php": "^8.1"
                 },
                 "require-dev": {
-                    "orchestra/testbench": "^8.0|^9.0|^10.0",
-                    "phpunit/phpunit": "^10.0|^11.0"
+                    "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+                    "phpunit/phpunit": "^10.0|^11.0|^12.0"
                 },
-                "time": "2026-08-12T12:53:45+00:00",
+                "time": "2026-08-12T13:59:06+00:00",
                 "default-branch": true,
                 "type": "library",
                 "extra": {
@@ -131,7 +198,7 @@
                     "postman"
                 ],
                 "support": {
-                    "source": "https://github.com/drogatechnology/postman-generator/tree/v1.0.0",
+                    "source": "https://github.com/drogatechnology/postman-generator/tree/main",
                     "issues": "https://github.com/drogatechnology/postman-generator/issues"
                 }
             }
