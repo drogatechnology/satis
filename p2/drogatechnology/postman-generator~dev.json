@@ -8,12 +8,12 @@
                 "source": {
                     "type": "git",
                     "url": "git@github.com:drogatechnology/postman-generator.git",
-                    "reference": "fd56a64b1f266251c6429d18cb2afc45699cec20"
+                    "reference": "2c07f4a93341e10e79ed5588afd43af8ae1c2719"
                 },
                 "dist": {
                     "type": "zip",
-                    "url": "https://api.github.com/repos/drogatechnology/postman-generator/zipball/fd56a64b1f266251c6429d18cb2afc45699cec20",
-                    "reference": "fd56a64b1f266251c6429d18cb2afc45699cec20",
+                    "url": "https://api.github.com/repos/drogatechnology/postman-generator/zipball/2c07f4a93341e10e79ed5588afd43af8ae1c2719",
+                    "reference": "2c07f4a93341e10e79ed5588afd43af8ae1c2719",
                     "shasum": ""
                 },
                 "require": {
@@ -26,7 +26,7 @@
                     "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
                     "phpunit/phpunit": "^10.0|^11.0|^12.0"
                 },
-                "time": "2026-08-12T14:03:25+00:00",
+                "time": "2026-08-12T14:14:01+00:00",
                 "default-branch": true,
                 "type": "library",
                 "extra": {
