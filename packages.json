@@ -1,0 +1,12 @@
+{
+    "packages": [],
+    "includes": {
+        "include/all$a8c7b0013f4088bc9fdf1ddff8628f75fad7ab22.json": {
+            "sha1": "a8c7b0013f4088bc9fdf1ddff8628f75fad7ab22"
+        }
+    },
+    "metadata-url": "/satis/p2/%package%.json",
+    "available-packages": [
+        "drogatechnology/postman-generator"
+    ]
+}
